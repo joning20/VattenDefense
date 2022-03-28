@@ -33,7 +33,20 @@ public class kemikalieScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "vattenverkHitbox")
         {
+            VattenVerk vattenverk = collision.gameObject.GetComponent<VattenVerk>();
+
+            if (vattenverk != null)
+            {
+                vattenverk.DmgBuilding(10);
+                print("DAmaged");
+            }
+            else
+            {
+                print("NOT VATTENVERK");
+            }
+
             Destroy(gameObject);
+
         }
         if (collision.gameObject.tag == "gridHitbox")
         {

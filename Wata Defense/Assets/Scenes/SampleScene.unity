@@ -311,7 +311,8 @@ Transform:
   m_LocalPosition: {x: 9.004, y: -2.2968, z: 0}
   m_LocalScale: {x: 4.580957, y: 5.698377, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1002238440}
   m_Father: {fileID: 1219550974}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -794,11 +795,11 @@ RectTransform:
   m_Father: {fileID: 1407979049}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -39.691, y: -173.5}
-  m_SizeDelta: {x: 801.02, y: 44.601}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 801.02, y: 44.600998}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &948256497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -864,6 +865,7 @@ GameObject:
   - component: {fileID: 1002238441}
   - component: {fileID: 1002238443}
   - component: {fileID: 1002238442}
+  - component: {fileID: 1002238444}
   m_Layer: 0
   m_Name: vattenverkHitbox
   m_TagString: vattenverkHitbox
@@ -878,13 +880,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002238439}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.8443, y: -4.64, z: 0}
-  m_LocalScale: {x: 5.924786, y: 0.88357174, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.90804166, y: -0.41120476, z: 0}
+  m_LocalScale: {x: 1.2933512, y: 0.15505672, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1219550974}
-  m_RootOrder: 6
+  m_Father: {fileID: 724391158}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1002238441
 SpriteRenderer:
@@ -985,6 +987,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1002238444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002238439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17925ec76ac6f2469b1f3eacfb2c0b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
 --- !u!1 &1102207204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,7 +1035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -281, y: -0.00000095367}
+  m_AnchoredPosition: {x: -281, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1102207206
@@ -1167,7 +1182,6 @@ Transform:
   - {fileID: 1314017108}
   - {fileID: 1423642404}
   - {fileID: 724391158}
-  - {fileID: 1002238440}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1374,7 +1388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1645,11 +1659,11 @@ RectTransform:
   m_Father: {fileID: 1407979049}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 400.5093, y: 22.2995}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 22.2995}
   m_SizeDelta: {x: 79.3775, y: 346.9972}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1529255167
 MonoBehaviour:
   m_ObjectHideFlags: 0
