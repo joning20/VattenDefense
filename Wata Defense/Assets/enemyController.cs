@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class enemyController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject kemikalieEnemy;
+    public List<GameObject> kemikalieInstants;
+    public bool moveKemikalie = false;
+    public Vector3 startPos;
+    public float speed;
+
+    public bool spawnKemikalier = true;
+
     void Start()
     {
-        
+        startPos = new Vector3(-9.15f, 7.5f, -2.9f);
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (spawnKemikalier)
+        {
+            StartCoroutine("Intervall");
+        }
+
+    }
+
+    IEnumerator Intervall()
+    {
+        spawnKemikalier = false;
+        yield return new WaitForSeconds(2.0f);
+        spawnKemikalie();
+        spawnKemikalier = true;
+    }
+
+    public void spawnKemikalie()
+    {
+        GameObject kemikalieInstant = Instantiate(kemikalieEnemy, startPos, Quaternion.identity);
+        kemikalieInstants.Add(kemikalieInstant);
     }
 }
