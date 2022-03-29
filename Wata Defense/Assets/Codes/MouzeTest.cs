@@ -34,7 +34,6 @@ public class MouzeTest : MonoBehaviour
 
             if (Physics2D.OverlapCircle(MoveObject.position, radiusCheck, CollisionLayer) && !Physics2D.OverlapCircle(MoveObject.position, radiusCheck, NotCollisonLayer) && !Physics2D.OverlapCircle(MoveObject.position, radiusCheck, TowerCollider))
             {
-                print("Placeable");
                 MoveMaterial.color = Color.green;
                 Placeable = true;
             }
@@ -50,13 +49,11 @@ public class MouzeTest : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
 
-                print("Clicked");
                 Vector3 TowerPos = new Vector3(MousePos.x, MousePos.y, -5);
 
                 if (Placeable)
                 {
                     Instantiate(TowerPrefab, TowerPos, transform.rotation);
-                    print("Placed");
                     placing();
                 }
             }
