@@ -8,10 +8,13 @@ public class VattenVerk : MonoBehaviour
     public int Health;
     public TextMeshProUGUI healthText;
     public Canvas losingUI;
+    public Canvas gameUI;
 
     void Start()
     {
         losingUI.enabled = false;
+        gameUI.enabled = true;
+        
     }
 
     // Update is called once per frame
