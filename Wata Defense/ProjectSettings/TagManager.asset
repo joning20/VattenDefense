@@ -9,6 +9,7 @@ TagManager:
   - gridHitbox3
   - gridHitbox4
   - vattenverkHitbox
+  - NotPlaceable
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - 
   - Water
   - UI
-  - Collider
-  - 
-  - 
+  - Placeable
+  - NotPlaceAble
+  - Tower
   - 
   - 
   - 
