@@ -10,6 +10,9 @@ TagManager:
   - gridHitbox4
   - vattenverkHitbox
   - NotPlaceable
+  - waterHitbox1
+  - waterHitbox
+  - soap
   layers:
   - Default
   - TransparentFX

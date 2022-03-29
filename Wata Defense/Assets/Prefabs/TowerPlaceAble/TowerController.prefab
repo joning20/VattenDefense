@@ -59,7 +59,8 @@ MonoBehaviour:
   MoveObject: {fileID: 4289682328970517314}
   MoveMaterial: {fileID: 4289682328970517315}
   Placeable: 0
-  TowerPrefab: {fileID: 690548538638866326, guid: 1a104ef4c818fad4d93c3faa278e408b, type: 3}
+  holdingTower: 0
+  TowerPrefab: {fileID: 2406885095563942909, guid: f933b2ce88fc0e54887fa0c9aed7c561, type: 3}
 --- !u!1 &4289682328970517325
 GameObject:
   m_ObjectHideFlags: 0
