@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class kemikalieScript : MonoBehaviour
 {
-    public enemyController EnemyController;
+    public GameObject vattenVerk;
 
     public string direction;
+
+    public float hp;
     void Start()
     {
+        vattenVerk = GameObject.FindWithTag("vattenverkHitbox");
         direction = "down";
     }
 
@@ -29,8 +32,30 @@ public class kemikalieScript : MonoBehaviour
         }
         
     }
+    public void TakeDamage(float health, string type)
+    {
+        if (type == "soap")
+        {
+            hp = hp - health;
+
+            if (hp < 51)
+            {
+                gameObject.GetComponent<Renderer>().material.color = Color.green;
+            }
+            if (hp < 1)
+            {
+                Destroy(gameObject);
+                vattenVerk.GetComponent<VattenVerk>().UpdateMoney(10f);
+            }
+        }
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "soap")
+        {
+            TakeDamage(50, "soap");
+        }
+
         if (collision.gameObject.tag == "vattenverkHitbox")
         {
             VattenVerk vattenverk = collision.gameObject.GetComponent<VattenVerk>();

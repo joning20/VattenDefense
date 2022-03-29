@@ -9,6 +9,7 @@ public class MouzeTest : MonoBehaviour
     public LayerMask CollisionLayer;
     public LayerMask NotCollisonLayer;
     public LayerMask TowerCollider;
+    public VattenVerk vattenVerk;
 
     [SerializeField] float radiusCheck;
     [SerializeField] Transform MoveObject;
@@ -18,6 +19,8 @@ public class MouzeTest : MonoBehaviour
     public bool holdingTower = false;
 
     public GameObject TowerPrefab;
+
+    public bool placingbool;
 
     void Start()
     {
@@ -55,6 +58,8 @@ public class MouzeTest : MonoBehaviour
                 {
                     Instantiate(TowerPrefab, TowerPos, transform.rotation);
                     placing();
+
+                    vattenVerk.UpdateMoney(-100);
                 }
             }
         }
@@ -64,7 +69,19 @@ public class MouzeTest : MonoBehaviour
 
     public void placing()
     {
-        holdingTower = !holdingTower;
-        MoveMaterial.enabled = !MoveMaterial.enabled;
+        if (holdingTower == false)
+        {
+            if (vattenVerk.Money > 99)
+            {
+                holdingTower = true;
+                MoveMaterial.enabled = true;
+            }
+        }
+        else
+        {
+            holdingTower = false;
+            MoveMaterial.enabled = false;
+        }
+
     }
 }
