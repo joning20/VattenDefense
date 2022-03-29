@@ -16,15 +16,16 @@ public class soaptowerScript : MonoBehaviour
 
     public float spawnIntervall;
 
+    public float startingIntervall;
+
     void Start()
     {
-        StartCoroutine("Intervall");
-        
+        StartCoroutine(Intervall(startingIntervall));
     }
 
-    IEnumerator Intervall()
+    IEnumerator Intervall(float intervall)
     {
-        yield return new WaitForSeconds(spawnIntervall);
+        yield return new WaitForSeconds(intervall);
 
         if (waterColliders.Count > 0)
         {
@@ -32,7 +33,7 @@ public class soaptowerScript : MonoBehaviour
 
             Instantiate(soapObject, RandomPointInBounds(waterColliders[number].gameObject.GetComponent<Collider2D>().bounds), Quaternion.identity);
 
-            StartCoroutine("Intervall");
+            StartCoroutine(Intervall(spawnIntervall));
         }
 
         
