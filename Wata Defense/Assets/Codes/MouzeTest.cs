@@ -15,6 +15,8 @@ public class MouzeTest : MonoBehaviour
     [SerializeField] SpriteRenderer MoveMaterial;
     [SerializeField] bool Placeable = false;
 
+    public bool holdingTower = false;
+
     public GameObject TowerPrefab;
 
     void Start()
@@ -24,36 +26,48 @@ public class MouzeTest : MonoBehaviour
 
     void Update()
     {
-        MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        MoveObject.position = new Vector3(MousePos.x, MousePos.y, MoveObject.position.z);
-
-        if (Physics2D.OverlapCircle(MoveObject.position, radiusCheck, CollisionLayer) && !Physics2D.OverlapCircle(MoveObject.position, radiusCheck, NotCollisonLayer) && !Physics2D.OverlapCircle(MoveObject.position, radiusCheck, TowerCollider))
+        if (holdingTower)
         {
-            print("Placeable");
-            MoveMaterial.color = Color.green;
-            Placeable = true;
-        }
+            MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        else
-        {
-            MoveMaterial.color = Color.red;
-            Placeable = false;
-        }
+            MoveObject.position = new Vector3(MousePos.x, MousePos.y, MoveObject.position.z);
 
-        //Placing
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-
-            print("Clicked");
-            Vector3 TowerPos =new Vector3(MousePos.x, MousePos.y, -5);
-
-            if (Placeable)
+            if (Physics2D.OverlapCircle(MoveObject.position, radiusCheck, CollisionLayer) && !Physics2D.OverlapCircle(MoveObject.position, radiusCheck, NotCollisonLayer) && !Physics2D.OverlapCircle(MoveObject.position, radiusCheck, TowerCollider))
             {
-                Instantiate(TowerPrefab, TowerPos, transform.rotation);
-                print("Placed");
+                print("Placeable");
+                MoveMaterial.color = Color.green;
+                Placeable = true;
+            }
+
+            else
+            {
+                MoveMaterial.color = Color.red;
+                Placeable = false;
+            }
+
+            //Placing
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+
+                print("Clicked");
+                Vector3 TowerPos = new Vector3(MousePos.x, MousePos.y, -5);
+
+                if (Placeable)
+                {
+                    Instantiate(TowerPrefab, TowerPos, transform.rotation);
+                    print("Placed");
+                    placing();
+                }
             }
         }
+
+       
+    }
+
+    public void placing()
+    {
+        holdingTower = !holdingTower;
+        MoveMaterial.enabled = !MoveMaterial.enabled;
     }
 }
