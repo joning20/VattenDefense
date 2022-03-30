@@ -48,12 +48,25 @@ public class kemikalieScript : MonoBehaviour
                 vattenVerk.GetComponent<VattenVerk>().UpdateMoney(10f);
             }
         }
+        if (type == "net")
+        {
+            hp = hp - health;
+            if (hp < 1)
+            {
+                Destroy(gameObject);
+                vattenVerk.GetComponent<VattenVerk>().UpdateMoney(10f);
+            }
+        }
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "soap")
         {
             TakeDamage(50, "soap");
+        }
+        if (collision.gameObject.tag == "net")
+        {
+            TakeDamage(100, "net");
         }
 
         if (collision.gameObject.tag == "vattenverkHitbox")

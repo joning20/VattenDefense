@@ -29,7 +29,7 @@ public class enemyController : MonoBehaviour
     IEnumerator Intervall()
     {
         spawnKemikalier = false;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(speed);
         spawnKemikalie();
         spawnKemikalier = true;
     }

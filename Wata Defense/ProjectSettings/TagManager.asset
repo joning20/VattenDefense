@@ -13,6 +13,8 @@ TagManager:
   - waterHitbox1
   - waterHitbox
   - soap
+  - net
+  - enemy
   layers:
   - Default
   - TransparentFX

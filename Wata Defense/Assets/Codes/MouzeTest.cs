@@ -22,7 +22,12 @@ public class MouzeTest : MonoBehaviour
 
     public GameObject TowerPrefab;
 
+    public GameObject tower2Prefab;
+
     public bool placingbool;
+
+    public bool soaptowerselected;
+    public bool tower1selected;
 
     void Start()
     {
@@ -58,11 +63,20 @@ public class MouzeTest : MonoBehaviour
 
                 if (Placeable)
                 {
-                    Instantiate(TowerPrefab, TowerPos, transform.rotation);
+                    if (soaptowerselected)
+                    {
+                        Instantiate(TowerPrefab, TowerPos, transform.rotation);
+                        vattenVerk.UpdateMoney(-100);
+                    }
+                    if (tower1selected)
+                    {
+                        Instantiate(tower2Prefab, TowerPos, transform.rotation);
+                        vattenVerk.UpdateMoney(-200);
+                    }
                     placing();
 
                     audioManager.PlayCashSound();
-                    vattenVerk.UpdateMoney(-100);
+                    
                 }
             }
         }
@@ -74,10 +88,21 @@ public class MouzeTest : MonoBehaviour
     {
         if (holdingTower == false)
         {
-            if (vattenVerk.Money > 99)
+            if (soaptowerselected)
             {
-                holdingTower = true;
-                MoveMaterial.enabled = true;
+                if (vattenVerk.Money > 99)
+                {
+                    holdingTower = true;
+                    MoveMaterial.enabled = true;
+                }
+            }
+            else if (tower1selected)
+            {
+                if (vattenVerk.Money > 199)
+                {
+                    holdingTower = true;
+                    MoveMaterial.enabled = true;
+                }
             }
         }
         else
@@ -86,5 +111,17 @@ public class MouzeTest : MonoBehaviour
             MoveMaterial.enabled = false;
         }
 
+    }
+
+    public void soapTower()
+    {
+        soaptowerselected = true;
+        tower1selected = false;
+    }
+
+    public void tower1Tower()
+    {
+        soaptowerselected = false;
+        tower1selected = true;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class soapScript : MonoBehaviour
+public class netScript : MonoBehaviour
 {
     public float fadeouttime;
 
@@ -13,21 +13,18 @@ public class soapScript : MonoBehaviour
         StartCoroutine(FadeOutMaterial(fadeouttime));
     }
 
-    // Update is called once per frame
+    // Update is called
+    
     void Update()
     {
-        
+
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "enemy")
         {
-            hitstaken = hitstaken + 1;
-            if (hitstaken > 2)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
     IEnumerator FadeOutMaterial(float fadeSpeed)
