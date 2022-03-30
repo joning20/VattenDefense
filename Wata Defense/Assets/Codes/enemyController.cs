@@ -5,7 +5,6 @@ using UnityEngine;
 public class enemyController : MonoBehaviour
 {
     public GameObject kemikalieEnemy;
-    public static List<GameObject> kemikalieInstants = new List<GameObject>();
     public bool moveKemikalie = false;
     public Vector3 startPos;
     public float speed;
@@ -32,13 +31,6 @@ public class enemyController : MonoBehaviour
 
     }
 
-    public static void RemoveEnemy(GameObject kemikalie)
-    {
-        if (kemikalieInstants.Contains(kemikalie))
-        {
-            kemikalieInstants.Remove(kemikalie);
-        }
-    }
 
     IEnumerator Intervall()
     {
@@ -73,8 +65,6 @@ public class enemyController : MonoBehaviour
                 kemikalieCount = 0;
             }
         }
-
-        kemikalieInstants.Add(kemikalieInstant);
     }
 
     public void UpdateSpeed()

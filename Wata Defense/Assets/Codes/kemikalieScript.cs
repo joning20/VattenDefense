@@ -58,7 +58,6 @@ public class kemikalieScript : MonoBehaviour
             }
             if (hp < 1)
             {
-                enemyController.RemoveEnemy(gameObject);
                 Destroy(gameObject);
 
                 vattenVerk.GetComponent<VattenVerk>().UpdateMoney(10f);
@@ -69,7 +68,6 @@ public class kemikalieScript : MonoBehaviour
             hp = hp - health;
             if (hp < 1)
             {
-                enemyController.RemoveEnemy(gameObject);
                 Destroy(gameObject);
                 vattenVerk.GetComponent<VattenVerk>().UpdateMoney(10f);
             }
