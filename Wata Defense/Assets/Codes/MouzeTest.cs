@@ -16,6 +16,8 @@ public class MouzeTest : MonoBehaviour
     [SerializeField] SpriteRenderer MoveMaterial;
     [SerializeField] bool Placeable = false;
 
+    public AudioManager audioManager;
+
     public bool holdingTower = false;
 
     public GameObject TowerPrefab;
@@ -59,6 +61,7 @@ public class MouzeTest : MonoBehaviour
                     Instantiate(TowerPrefab, TowerPos, transform.rotation);
                     placing();
 
+                    audioManager.PlayCashSound();
                     vattenVerk.UpdateMoney(-100);
                 }
             }

@@ -11,6 +11,7 @@ public class VattenVerk : MonoBehaviour
     public TextMeshProUGUI healthText;
     public Canvas losingUI;
     public Canvas gameUI;
+    public AudioManager audioManager;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class VattenVerk : MonoBehaviour
     }
     public void UpdateMoney(float money)
     {
+    //    audioManager.PlayCashSound();
         Money = Money + money;
         moneyText.text = "Money: " + Money.ToString();
     }
