@@ -8,9 +8,15 @@ public class kemikalieScript : MonoBehaviour
 
     public AudioManager audioManager;
 
+    public Sprite dmgBarrel;
+
+    //public enemyController enemyCont;
+
     public string direction;
 
     public float hp;
+
+    public float speed = 0.1f;
 
     void Start()
     {
@@ -25,15 +31,15 @@ public class kemikalieScript : MonoBehaviour
     {        
         if (direction == "down")
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.1f, -2.9f);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - speed, -2.9f);
         }
         if (direction == "right")
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x + 0.1f, gameObject.transform.position.y, -2.9f);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x + speed, gameObject.transform.position.y, -2.9f);
         }
         if (direction == "up")
         {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.1f, -2.9f);
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + speed, -2.9f);
         }
         
     }
@@ -47,11 +53,14 @@ public class kemikalieScript : MonoBehaviour
 
             if (hp < 51)
             {
-                gameObject.GetComponent<Renderer>().material.color = Color.green;
+                SpriteRenderer spriteRend = gameObject.GetComponent<SpriteRenderer>();
+                spriteRend.sprite = dmgBarrel;
             }
             if (hp < 1)
             {
+                enemyController.RemoveEnemy(gameObject);
                 Destroy(gameObject);
+
                 vattenVerk.GetComponent<VattenVerk>().UpdateMoney(10f);
             }
         }
@@ -60,6 +69,7 @@ public class kemikalieScript : MonoBehaviour
             hp = hp - health;
             if (hp < 1)
             {
+                enemyController.RemoveEnemy(gameObject);
                 Destroy(gameObject);
                 vattenVerk.GetComponent<VattenVerk>().UpdateMoney(10f);
             }

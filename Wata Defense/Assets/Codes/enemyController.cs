@@ -5,16 +5,19 @@ using UnityEngine;
 public class enemyController : MonoBehaviour
 {
     public GameObject kemikalieEnemy;
-    public List<GameObject> kemikalieInstants;
+    public static List<GameObject> kemikalieInstants = new List<GameObject>();
     public bool moveKemikalie = false;
     public Vector3 startPos;
     public float speed;
+    public fastScript fastScript;
 
     public bool spawnKemikalier = true;
 
 
     public bool wave1 = false;
     public int wave1counter;
+
+    public int kemikalieCount = 0;
     void Start()
     {
         startPos = new Vector3(-9.15f, 7.5f, -2.9f);
@@ -29,6 +32,14 @@ public class enemyController : MonoBehaviour
 
     }
 
+    public static void RemoveEnemy(GameObject kemikalie)
+    {
+        if (kemikalieInstants.Contains(kemikalie))
+        {
+            kemikalieInstants.Remove(kemikalie);
+        }
+    }
+
     IEnumerator Intervall()
     {
         spawnKemikalier = false;
@@ -40,6 +51,29 @@ public class enemyController : MonoBehaviour
     public void spawnKemikalie()
     {
         GameObject kemikalieInstant = Instantiate(kemikalieEnemy, startPos, Quaternion.identity);
+        kemikalieCount++;
+
+        if (!wave1)
+        {
+            if (kemikalieCount > 10 && speed > 2)
+            {
+                fastScript.spawnKemikalie();
+                kemikalieCount = 0;
+            }
+
+            else if (kemikalieCount > 5 && speed < 2 && speed > 1.5)
+            {
+                fastScript.spawnKemikalie();
+                kemikalieCount = 0;
+            }
+
+            else if (kemikalieCount > 1 && speed < 1.5)
+            {
+                fastScript.spawnKemikalie();
+                kemikalieCount = 0;
+            }
+        }
+
         kemikalieInstants.Add(kemikalieInstant);
     }
 

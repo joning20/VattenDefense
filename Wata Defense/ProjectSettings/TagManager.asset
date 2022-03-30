@@ -16,6 +16,7 @@ TagManager:
   - net
   - enemy
   - AudioManager
+  - EnemyController
   layers:
   - Default
   - TransparentFX

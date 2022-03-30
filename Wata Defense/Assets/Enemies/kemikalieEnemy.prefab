@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9622642, g: 0.0671769, b: 0.0671769, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7e6b3a008a6fddb40bad1e780ec0eb51, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,8 +103,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.584918, y: 0.46568155}
+    oldSize: {x: 4.31, y: 1.85}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -126,8 +126,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vattenVerk: {fileID: 0}
+  audioManager: {fileID: 0}
+  dmgBarrel: {fileID: 21300000, guid: c91c2b9e8af3e37479110b4398da97d5, type: 3}
   direction: 
   hp: 100
+  speed: 0.1
 --- !u!50 &-2743451454231039131
 Rigidbody2D:
   serializedVersion: 4
