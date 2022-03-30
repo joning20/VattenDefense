@@ -29,6 +29,9 @@ public class MouzeTest : MonoBehaviour
     public bool soaptowerselected;
     public bool tower1selected;
 
+    public Sprite Bubble;
+    public Sprite Net;
+
     void Start()
     {
         radiusCheck = MoveObject.localScale.x / 2;
@@ -38,6 +41,16 @@ public class MouzeTest : MonoBehaviour
     {
         if (holdingTower)
         {
+            if (soaptowerselected)
+            {
+                MoveMaterial.sprite = Bubble;
+            }
+
+            else
+            {
+               // MoveMaterial.sprite 
+            }
+
             MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             MoveObject.position = new Vector3(MousePos.x, MousePos.y, MoveObject.position.z);

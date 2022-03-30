@@ -1327,6 +1327,10 @@ PrefabInstance:
       value: TowerController
       objectReference: {fileID: 0}
     - target: {fileID: 4289682328474252435, guid: ee6365822cc056947931283b2ceb3777, type: 3}
+      propertyPath: Bubble
+      value: 
+      objectReference: {fileID: 21300000, guid: 36ca367008133d343a6dbf4ff3b6f3d6, type: 3}
+    - target: {fileID: 4289682328474252435, guid: ee6365822cc056947931283b2ceb3777, type: 3}
       propertyPath: vattenVerk
       value: 
       objectReference: {fileID: 623814895}
@@ -2167,11 +2171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fastEnemy: {fileID: 1991132191049495311, guid: 8d2d2609b052b4a408d37d3c6765f564, type: 3}
-  fastInstants: []
-  moveFastBoi: 0
   startPos: {x: 0, y: 0, z: 0}
-  speed: 4
-  spawnFastBoi: 1
   wave1: 0
   wave1counter: 0
 --- !u!1 &766933488
