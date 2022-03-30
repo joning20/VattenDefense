@@ -18,9 +18,13 @@ public class netTowerScript : MonoBehaviour
 
     public float startingIntervall;
 
+    public AudioManager audioManager;
+
     void Start()
     {
         StartCoroutine(Intervall(startingIntervall));
+
+        audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
     IEnumerator Intervall(float intervall)
@@ -31,6 +35,7 @@ public class netTowerScript : MonoBehaviour
         {
             var number = Random.Range(0, waterColliders.Count);
 
+            audioManager.PlayNetSound();
             Instantiate(netObject, RandomPointInBounds(waterColliders[number].gameObject.GetComponent<Collider2D>().bounds), Quaternion.identity);
 
             StartCoroutine(Intervall(spawnIntervall));

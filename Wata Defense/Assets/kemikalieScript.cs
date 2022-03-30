@@ -6,13 +6,18 @@ public class kemikalieScript : MonoBehaviour
 {
     public GameObject vattenVerk;
 
+    public AudioManager audioManager;
+
     public string direction;
 
     public float hp;
+
     void Start()
     {
         vattenVerk = GameObject.FindWithTag("vattenverkHitbox");
         direction = "down";
+
+        audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
    
@@ -37,6 +42,8 @@ public class kemikalieScript : MonoBehaviour
         if (type == "soap")
         {
             hp = hp - health;
+
+            audioManager.PlaySplashSound();
 
             if (hp < 51)
             {

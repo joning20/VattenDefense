@@ -15,6 +15,7 @@ TagManager:
   - soap
   - net
   - enemy
+  - AudioManager
   layers:
   - Default
   - TransparentFX

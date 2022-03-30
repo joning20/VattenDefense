@@ -31,10 +31,8 @@ public class VattenVerk : MonoBehaviour
     //    audioManager.PlayCashSound();
         Money = Money + money;
         moneyText.text = "Money: " + Money.ToString();
-        if (enemyController.speed > 0.7)
-        {
-            enemyController.speed = enemyController.speed - 0.3f;
-        }
+        enemyController.UpdateSpeed();
+
 
     }
     public void DmgBuilding(int dmg)

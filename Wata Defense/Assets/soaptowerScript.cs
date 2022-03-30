@@ -18,9 +18,13 @@ public class soaptowerScript : MonoBehaviour
 
     public float startingIntervall;
 
+    public AudioManager audioManager;
+
     void Start()
     {
         StartCoroutine(Intervall(startingIntervall));
+
+        audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
     IEnumerator Intervall(float intervall)
@@ -30,6 +34,8 @@ public class soaptowerScript : MonoBehaviour
         if (waterColliders.Count > 0)
         {
             var number = Random.Range(0, waterColliders.Count);
+
+            audioManager.PlayBubbleSound();
 
             Instantiate(soapObject, RandomPointInBounds(waterColliders[number].gameObject.GetComponent<Collider2D>().bounds), Quaternion.identity);
 
